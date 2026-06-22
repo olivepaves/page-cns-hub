@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯简明指南 · 页面产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce3b6 0%, #f7c978 35%, #f5b34b 70%, #f09a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2c2c2c;
+        }
+
+        .card {
+            max-width: 880px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 18px 40px -12px rgba(140, 70, 0, 0.35), 0 8px 18px rgba(0,0,0,0.05);
+            padding: 2.8rem 2.6rem;
+            backdrop-filter: blur(2px);
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .card { padding: 2rem 1.4rem; border-radius: 28px; }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+            color: #422006;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 56px;
+            height: 5px;
+            background: #e48a2b;
+            border-radius: 8px;
+            margin-top: 6px;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: #5a3e1e;
+            margin-bottom: 2rem;
+            font-weight: 430;
+            border-left: 4px solid #e48a2b;
+            padding-left: 1rem;
+            background: #fef4e6;
+            border-radius: 0 12px 12px 0;
+            padding: 0.7rem 1rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #3d280e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            font-style: normal;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: #f39c3b;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            color: #3d3020;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+            margin: 1.2rem 0 1.8rem 0;
+        }
+
+        @media (max-width: 520px) {
+            .highlight-grid { grid-template-columns: 1fr; }
+        }
+
+        .highlight-item {
+            background: #fcf4e9;
+            padding: 0.9rem 1rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            border: 1px solid #f5dbb1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .highlight-item strong {
+            color: #7b4b1a;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .scene-list {
+            background: #fcf3e6;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.2rem 0 1.6rem 0;
+            list-style: none;
+        }
+
+        .scene-list li {
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .scene-list li::before {
+            content: "▹";
+            color: #d17f29;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .faq-mini {
+            background: #fff7ed;
+            border: 1px solid #efd6b4;
+            border-radius: 24px;
+            padding: 1rem 1.4rem;
+            margin: 1.6rem 0 1.2rem;
+        }
+
+        .faq-mini details {
+            margin: 0.5rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 550;
+            cursor: pointer;
+            color: #4d300f;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini summary::marker {
+            color: #e48a2b;
+        }
+
+        .faq-mini p {
+            margin: 0.3rem 0 0.2rem 1.2rem;
+            font-size: 0.93rem;
+            color: #4a3c2a;
+        }
+
+        .link-sentence {
+            background: #f3e3cf;
+            padding: 0.8rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            font-size: 0.98rem;
+            margin: 0.8rem 0 1.2rem;
+            font-weight: 450;
+            border: 1px solid #e2be90;
+        }
+
+        .link-sentence a {
+            color: #b4590b;
+            text-decoration: none;
+            font-weight: 600;
+            background: #ffffffd9;
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            transition: all 0.15s;
+            border: 1px solid #d99a49;
+            display: inline-block;
+        }
+
+        .link-sentence a:hover {
+            background: #f1c080;
+            color: #2d1a04;
+            border-color: #b66f1e;
+            transform: scale(1.02);
+        }
+
+        .note-box {
+            background: #f3ede6;
+            border-radius: 18px;
+            padding: 1rem 1.3rem;
+            font-size: 0.92rem;
+            color: #3d2f1d;
+            border-left: 5px solid #c47a2a;
+            margin-top: 1.4rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #eaccb0;
+            margin: 1.8rem 0 0.8rem;
+            opacity: 0.5;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #5f4f38;
+            text-align: center;
+            margin-top: 0.6rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>世界杯 · 简明产品笔记</h1>
+        <div class="hero-sub">
+            从信息获取到场景应用：一份聚焦效率与克制的访问指南
+        </div>
+
+        <p>
+            围绕 <strong>世界杯</strong> 这一全球性赛事，相关数字资源与内容平台持续迭代。本文档旨在以产品化视角，梳理其核心功能亮点、典型使用场景以及必要的访问提示，帮助使用者快速建立合理预期。
+        </p>
+
+        <h2><i>1</i> 摘要 · 定位与边界</h2>
+        <p>
+            本页面所指向的 <strong>世界杯</strong> 相关站点，提供赛事资讯、历史数据、队伍档案及基础交互工具。内容覆盖主流赛程与统计数据，不涉及博彩、投注或任何形式的金融引导。所有公开信息均来源于合规渠道，并经过基础校验。
+        </p>
+
+        <h2><i>2</i> 亮点 · 四个实用特征</h2>
+        <div class="highlight-grid">
+            <div class="highlight-item">
+                <strong>📋 结构化赛程</strong>
+                按时间轴与分组双维度排列，支持快速筛选球队与比赛阶段。
+            </div>
+            <div class="highlight-item">
+                <strong>📊 历史回溯</strong>
+                收录近五届世界杯核心统计数据，便于对比与趋势分析。
+            </div>
+            <div class="highlight-item">
+                <strong>🧩 轻量交互</strong>
+                无需注册即可浏览主要板块，降低使用门槛。
+            </div>
+            <div class="highlight-item">
+                <strong>🔍 检索辅助</strong>
+                关键字与队伍名称快速定位，减少无关信息干扰。
+            </div>
+        </div>
+
+        <h2><i>3</i> 典型使用场景</h2>
+        <ul class="scene-list">
+            <li>赛前快速查阅对阵时间、场地与历史交锋记录；</li>
+            <li>赛事进行期间获取实时比分、进球统计及短评；</li>
+            <li>研究球队阵容变化与球员基础数据，辅助理解战术背景；</li>
+            <li>回顾经典赛事过程，用于内容创作或教研参考。</li>
+        </ul>
+
+        <h2><i>4</i> 访问说明 · 可信且克制</h2>
+        <p>
+            使用过程中请注意：平台不提供直播流或官方转播信号，所有赛程时间以官方公布为准。数据更新存在合理延迟，重大更正会通过页面标注说明。建议通过可靠网络环境访问，并对个人信息保持基本保护意识。
+        </p>
+        <p>
+            如需了解更完整的赛事档案与分析工具，可参考 <span class="link-sentence">访问 <a href="https://page-cns-sjb.com">世界杯</a> 资源索引页面</span>，该入口聚合了主要功能模块与常见问题。
+        </p>
+
+        <div class="faq-mini">
+            <details>
+                <summary>FAQ 摘要 · 是否需要注册？</summary>
+                <p>绝大多数浏览功能无需账号。部分社区或收藏类扩展功能可能要求登录，但非核心路径。注册信息仅用于基础互动，不会用于第三方营销。</p>
+            </details>
+            <details>
+                <summary>数据来源是否可靠？</summary>
+                <p>赛事数据主要整合自国际足联公开信息及多家主流体育数据机构，并经过交叉比对。历史资料尽可能标引原始来源。</p>
+            </details>
+            <details>
+                <summary>移动端适配如何？</summary>
+                <p>界面已针对手机与平板做响应式适配，核心表格与导航均可正常交互。部分复杂数据表建议横屏查看。</p>
+            </details>
+        </div>
+
+        <div class="note-box">
+            <strong>📌 使用提醒</strong> – 本页面及所链接的世界杯资源为信息聚合类产品，不包含任何形式的下注引导、虚拟资产交易或敏感内容。请理性使用，避免过度依赖单一信源。如发现数据异常或链接失效，可通过页面反馈渠道告知。
+        </div>
+
+        <hr>
+        <div class="footer-note">
+            产品说明页 · 世界杯 · 版本 2025.04
+        </div>
+    </div>
+</body>
+</html>
